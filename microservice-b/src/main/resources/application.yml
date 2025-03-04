@@ -1,0 +1,25 @@
+spring:
+  application.name: microservice-b
+
+server:
+  port: 8096
+  address: 0.0.0.0
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics,prometheus,traces"
+
+  endpoint:
+    health:
+      show-details: "always"
+
+  metrics:
+    export:
+      prometheus:
+        enabled: true
