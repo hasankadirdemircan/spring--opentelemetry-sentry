@@ -18,4 +18,11 @@ public class BController {
         LOGGER.error("B microservice thrown an error in throwErrorFromBMicroservice ");
         throw new RuntimeException("error in throwErrorFromBMicroservice");
     }
+
+
+    @GetMapping("/ok")
+    public String noErrorFromBMicroservice() {
+        LOGGER.info("B microservice api called throwErrorFromBMicroservice");
+        return "ok";
+    }
 }

@@ -41,4 +41,14 @@ public class TestController {
             return "error catched";
         }
     }
+
+    @GetMapping("/call-microservice-b-no-error")
+    public String noErrorCallMicroServiceB() {
+        String response = null;
+        try {
+            return response = restTemplate.getForObject("http://b-microservice-app:8096/b/ok", String.class);
+        }catch (Exception e) {
+            return "error catched";
+        }
+    }
 }
