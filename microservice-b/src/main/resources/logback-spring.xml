@@ -1,0 +1,25 @@
+<configuration>
+
+    <appender name="SENTRY" class="io.sentry.logback.SentryAppender">
+        <dsn>https://23dd5c6556b7869a101b8b60c59871e7@o4508920036327424.ingest.de.sentry.io/4508935228817488</dsn>
+
+        <minimumBreadcrumbLevel>INFO</minimumBreadcrumbLevel>
+
+        <minimumEventLevel>ERROR</minimumEventLevel>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%level] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="SENTRY" />
+    </root>
+
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="io.opentelemetry" level="WARN"/>
+</configuration>
